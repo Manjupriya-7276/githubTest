@@ -14,7 +14,7 @@ class Solution:
         return length
 
 
-Better approach
+Better approach (when positives and negatives are there , cant optimize more than this)
 
 class Solution:
     def lenOfLongSubarr (self, arr, n, k) : 
@@ -35,5 +35,32 @@ class Solution:
             if sum not in presum_Map:
                 presum_Map[rem]=i
         return maxlen
+
+optimal approach (when positives and zerors are there)
+
+def lenOfLongSubarr(self, arr, n, k):
+        maxlen=0
+        sum=arr[0]
+        i=j=0
+        while(j < n):
+            
+            while i<=j and sum > k:
+                sum=sum-arr[i]
+                i=i+1
+                
+                
+            if sum==k:
+                maxlen=max(maxlen,j-i+1)
+            
+            
+            j=j+1
+            
+            if j<n:
+                sum=sum+arr[j]
+            
+        return maxlen
+                
+
+
 
 
