@@ -12,4 +12,34 @@ class Solution:
                 if sums==k:
                     count=count+1
         return count
-            
+
+my approach optimal : works when positives and zeros are given
+
+class Solution:
+    def subarraySum(self, nums: List[int], k: int) -> int:
+        sums = nums[0]
+        i = 0
+        j = 0
+        mapp = {}
+        count = 0
+        while j < len(nums):
+            if sums == k:
+                count += 1
+                mapp[sums] = count
+
+            if sums >= k:
+                sums -= nums[i]
+                i += 1
+                if i > j:
+                    j = i  # Ensure i and j do not cross
+
+            else:
+                j += 1
+                if j < len(nums):
+                    sums += nums[j]
+                else:
+                    break  # Prevent going out of bounds
+
+        return count
+
+
