@@ -12,7 +12,7 @@ class Solution:
                 nums[i],nums[min_value]=nums[min_value],nums[i]
         return nums
 
-optimal approach(Quick sort)
+Brutforce approach(Quick sort)
 
 class Solution:
     def pivot_place(self,nums,lowerbound,upperbound):
